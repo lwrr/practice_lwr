@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object.defineProperty</title>
+  </head>
+  <body>
+  <!--   <script type="text/javascript">
+  var obj1 = {};
+  var descriptor = Object.create(null); // 没有继承的属性
+  // 默认没有 enumerable，没有 configurable，没有 writable
+  descriptor.value = 'static';
+  Object.defineProperty(obj1, 'key', descriptor);
+  console.log(obj1);
+  </script>
+  
+  <script type="text/javascript">
+  // 显式
+  var obj2 = {};
+  Object.defineProperty(obj2, 'key', {
+      enumerable: true,
+      configurable: false,
+      writable: false,
+      value: 'static',
+  });
+  console.log(obj2);
+  </script> -->
+
+<input type="text" id="model">
+<div id="modelText"></div>
+</html>
+<script>
+//双向绑定
+var user = {};
+var defaultName = "狂奔的蜗牛";
+var model = document.querySelector('#model');
+    model.value = defaultName;
+var modelText = document.querySelector("#modelText");
+    modelText.textContent = defaultName;
+
+Object.defineProperty(user, "name", {
+    get: function() {
+        console.log("get Value");
+
+        return defaultName;
+    },
+    set: function(value) {
+        console.log("set value");
+        defaultName = value;
+        //model-to- view
+        model.value = value;
+        modelText.textContent = value;
+    }
+});
+
+setTimeout(()=>{
+    user.name = 'model-view';
+},2000);
+
+model.addEventListener('keyup',(event)=>{
+    //view-to -model
+    user.name = event.target.value;
+})
+</script>
+
+  </body>
+</html>

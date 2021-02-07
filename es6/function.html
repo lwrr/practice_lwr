@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>function</title>
+</head>
+<body>
+	  <style media="screen">
+      .del{
+        cursor: pointer;
+      }
+    </style>
+    <ul class="list">
+      <li>
+        <h1>第一行</h1>
+        <p>这是内容区，点击X删除当前行，<span class="del">X</span></p>
+      </li>
+      <li>
+        <h1>第二行</h1>
+        <p>这是内容区，点击X删除当前行，<span class="del">X</span></p>
+      </li>
+      <li>
+        <h1>第三行</h1>
+        <p>这是内容区，点击X删除当前行，<span class="del">X</span></p>
+      </li>
+      <li>
+        <h1>第四行</h1>
+        <p>这是内容区，点击X删除当前行，<span class="del">X</span></p>
+      </li>
+    </ul>
+    <ul class="list">
+      <li>
+        <h1>这是另一个List第一行</h1>
+        <p>这是内容区，点击X删除当前行，<span class="del">X</span></p>
+      </li>
+      <li>
+        <h1>这是另一个List第二行</h1>
+        <p>这是内容区，点击X删除当前行，<span class="del">X</span></p>
+      </li>
+      <li>
+        <h1>这是另一个List第三行</h1>
+        <p>这是内容区，点击X删除当前行，<span class="del">X</span></p>
+      </li>
+      <li>
+        <h1>这是另一个List第四行</h1>
+        <p>这是内容区，点击X删除当前行，<span class="del">X</span></p>
+      </li>
+    </ul>
+	<script>
+		/*var handle ={
+			 init(sel){
+				this.el = [...document.querySelectorAll(sel)]
+				for(let item of this.el){
+					item.addEventListener('click',e => {
+						if(e.target.className.indexOf('del')>-1){
+							this.doSomethring(e.target)
+						}
+					})
+				}
+			},
+			doSomethring(node){
+				// let self = this
+				let f = (node) => {
+					let parent = node.parentNode 
+						let root = this.el.find(item => item===parent)
+						if(typeof root !='undefined'){
+							root.removeChild(node)
+						}else{
+							f(parent)
+						}
+				} 
+				f(node)
+				
+			}
+		}*/
+		var Handle = function(){
+			this.init = (sel) => {
+				this.el = [...document.querySelectorAll(sel)]
+				for(let item of this.el){
+					item.addEventListener('click',e => {
+						if(e.target.className.indexOf('del')>-1){
+							doSomethring(e.target)
+						}
+					})
+				}
+			}
+			var doSomethring = (node) => {
+				// let self = this
+				let f = (node) => {
+					let parent = node.parentNode 
+						let root = this.el.find(item => item===parent)
+						if(typeof root !='undefined'){
+							root.removeChild(node)
+						}else{
+							f(parent)
+						}
+				} 
+				f(node)
+			}	 
+		}
+		
+		window.addEventListener('DOMContentLoaded',() => {
+			/*console.log(1)
+			handle.init('.list')*/
+			var handle = new Handle()
+			handle.init('.list')
+		})
+
+
+	
+		
+
+	</script>
+</body>
+</html>

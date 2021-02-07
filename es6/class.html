@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Class</title>
+</head>
+<body>
+	<ul>
+		<li class="list">X</li>
+		<li class="list">X</li>
+		<li class="list">X</li>
+	</ul>
+	<script>
+		class Handle{
+			background = '#fffff'
+			static color = 'red'
+			static getClass(){
+				console.log(this.color)
+			}
+			constructor(){
+				this.name = 'lwr'
+				this.getName = function(){
+					return this.name
+				}
+			}
+			doSomethring(){
+				bar.call(this,'hahah')
+				console.log(this.name)
+			}
+		}
+		function bar(baz){
+			return this.snaf = baz
+		}
+		var handle = new Handle()
+var name ="wlb"
+		function ES5(){
+			this.name="lwr"
+			this.getName = function(){
+				console.log(this.name)
+			}
+			// var self = this
+			let say = () => {
+				console.log(this.name)
+			}
+			say()
+		}
+		var es = new ES5()
+/*var obj = Object.create(null)
+		Object.setPrototypeOf(obj,es)
+		es.say = function(){
+			console.log(123)
+		}*/
+
+		function modeFun(){
+			var name=["liweirong"]
+			return {
+				getName(){
+					return name
+				},
+				getName2(){
+					return name
+				},
+				setName(param){
+					name.push(param)  
+				}
+			}
+		}
+
+let obj1 = modeFun()
+let obj2 = modeFun()
+
+var add_the_handle = function(sel){
+			let el = Array.from(document.querySelectorAll(".list"))
+			let i;
+			// for(i=0;i<el.length;i++){
+			// 	el[i].addEventListener('click',function(){
+			// 		alert(i)
+			// 	})
+			// }
+			el.forEach((item,index) =>{
+				item.addEventListener('click',function(){
+					alert(index)
+				})
+			})
+			/*for(let [index,item] of el.entries()){
+				item.addEventListener('click',function(){
+					alert(index)
+				})
+			}*/
+		}
+
+		window.addEventListener('DOMContentLoaded',function(){
+			add_the_handle()
+		})
+
+	// 	function paintStr(arr){
+	// 	let str = []
+	// 	function getStr(arr){
+	// 		if(Object.prototype.toString.call(arr) === '[Object Array]'){
+	// 			for(let item of arr){
+	// 				arguments.callee(item)
+	// 			}
+	// 		}else{
+	// 			str.push(arr)
+	// 		}
+	// 	}
+	// 	getStr(arr)
+	// 	console.log(str.join(','))
+	// 	// return str.join(',')
+	// }
+	// paintStr(['a',['b','c'],'d','e','f',['g',['h','i'],'j','k'],'l','m'])
+	// paintStr({a:1})
+
+	</script>
+</body>
+</html>

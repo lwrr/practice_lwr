@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Symbol</title>
+</head>
+<body>
+	<script>
+		const COLOR_RED    = Symbol();
+const COLOR_GREEN  = Symbol();
+
+function getComplement(color) {
+  switch (color) {
+    case COLOR_RED:
+      return COLOR_GREEN;
+    case COLOR_GREEN:
+      return COLOR_RED;
+    default:
+      throw new Error('Undefined color');
+    }
+}
+const aa = Symbol("aaa")
+const aaa = Symbol("aaa")
+const bb = Symbol('bbb')
+const cc = Symbol('ccc')
+let obj = {
+	[bb](){
+		return 'bbbbbbb'
+	},
+	[cc](){
+		return 'cccccc'
+	}
+}
+obj[aa] = "lwr"
+
+
+/*var singleton = function(){
+	var priVar = 10;
+	function priFn(){
+		return ture;
+	}
+	return {
+		
+		pubFn:function(){
+			priVar = priVar+1;
+			return priVar;
+		},
+		pubVar:priVar
+	}
+}();
+
+
+console.log(singleton.pubFn());*/
+
+/*(function(){
+	var name;
+	Person = function(value){
+		name =value;
+	};
+	Person.prototype.getName = function(){
+		return name ;
+	};
+	Person.prototype.setName = function(value){
+		 name =value ;
+	}
+})();
+
+
+var p = new Person(" ");
+var p1 = new Person("wlb");*/
+
+let singleton =(function(){
+	var name="lwr"
+	function say(somethring){
+		console.log(somethring)
+	}
+	return {
+		getName(){
+			return name
+		},
+		setName(value){
+			name = value
+		},
+		say
+	}
+}())
+
+	</script>
+	
+</body>
+</html>

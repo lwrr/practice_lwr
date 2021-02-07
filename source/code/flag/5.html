@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>REG</title>
+</head>
+<body>
+	<script>
+		var arr = ['a', ['b', 'c'], 2, 'd', 'e', 3, 4, 5];
+		function flat (arr) {
+	    let jsonArr = JSON.stringify(arr); // 将数组转化成json
+	    console.log(jsonArr)
+	    return jsonArr.replace(/(\[|\]|\")/g, ''); // 用正则去掉json中所有的中括号并返回
+	</script>
+</body>
+</html>
